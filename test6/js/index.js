@@ -94,25 +94,15 @@ const users = [
   },
 ];
 
-const map = (arr, callback) => {
-	const resultArray = [];
-
-	for (let i = 0, max = arr.lenght; i < max; i += 1 ) {
-		const element = arr[i];
-		const item = callback(element);
-		resultArray.push(item);
-	};
-
-	return resultArray;
-};
 
 
-const getAllNames =  map( users, arr => users.name );
+const getAllNames = users.map(arr => arr.name);
+
+var item = users.find(item => item.eyeColor === 'blue');
 
 
-console.log(
-	getAllNames
-);
+console.log(getAllNames);
+console.log(item.name);
 
 
 
