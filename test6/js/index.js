@@ -96,16 +96,32 @@ const users = [
 
 
 
-const getAllNames = users.map(arr => arr.name);
+const getAllNames = arr => arr.map(arr => arr.name);
 
-var item = users.find(item => item.eyeColor === 'blue');
+var getUsersByEyeColor = (arr, color) => arr.filter(arr => arr.eyeColor === color);
+
+var getUsersByGender = (arr, gender) => arr.filter(arr => arr.gender === gender);
+
+var getInactiveUsers = arr => arr.filter(arr => !arr.isActive);
+
+var getUserByEmail = (arr, email) => arr.find(arr => arr.email === email);
+
+const getUsersWithAge = (arr, min, max) => arr.filter(arr => min <= arr.eyeColor <= max);
+
+const getTotalBalance = arr => arr.map(arr => arr.balance).reduce((previousValue, currentValue) => previousValue + currentValue);
+
+const getUsersByFriend = (arr, friend) => arr.filter(arr => arr.friends.includes(friend)).map(arr => arr.name);
 
 
-console.log(getAllNames);
-console.log(item.name);
 
 
-
-
-
-
+console.log(getAllNames(users));
+console.log(getUsersByEyeColor(users, 'blue'));
+console.log(getUsersByGender(users, 'male'));
+console.log(getInactiveUsers(users));
+console.log(getUserByEmail(users, 'shereeanthony@kog.com'));
+console.log(getUserByEmail(users, 'elmahead@omatom.com'));
+console.log(getUsersWithAge(users, 20, 30));
+console.log(getUsersWithAge(users, 30, 40)); 
+console.log(getTotalBalance(users));
+console.log(getUsersByFriend(users, 'Briana Decker'));
